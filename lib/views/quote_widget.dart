@@ -1,16 +1,14 @@
-// lib/quote_widget.dart
-
 import 'package:flutter/material.dart';
+import 'package:my_quote_app/models/quote_model.dart';
 
 class QuoteWidget extends StatelessWidget {
-  final Map<String, dynamic>? quote;
+  final QuoteModel? quote;
 
   QuoteWidget({required this.quote});
 
   @override
   Widget build(BuildContext context) {
     if (quote == null) {
-      // Handle the case where quote is null, for example, show a loading indicator or an error message.
       return CircularProgressIndicator();
     }
 
@@ -18,12 +16,12 @@ class QuoteWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          quote!['content'],
-          style: TextStyle(fontSize: 20),
+          quote!.content,
+          style: TextStyle(fontSize: 40),
         ),
         SizedBox(height: 10),
         Text(
-          '- ${quote!['author']}',
+          '- ${quote!.author}',
           style: TextStyle(fontSize: 16),
         ),
       ],
